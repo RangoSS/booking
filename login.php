@@ -38,7 +38,7 @@
             <div id="login-row" class="row justify-content-center align-items-center">
                 <div id="login-column" class="col-md-6">
                     <div id="login-box" class="col-md-12" style="height: auto;">
-                        <form id="login-form" class="form" action="" method="post" style="height: auto;">
+                        <form id="login-form" class="form" action="login_back.php" method="post" style="height: auto;">
                             <h3 class="text-center text-info">Registration</h3>
                             <div class="form-group">
                                 <label for="first_name" class="text-info">First Name:</label><br>
@@ -66,25 +66,25 @@
                             </div>
                             <div class="form-group">
                                 <label for="gender" class="text-info">Gender:</label><br>
-                                <input type="radio" class="radio-inline" name="magender" id="magender" value="male" class="form-control">Male
-                                <input type="radio" class="radio-inline" name="magender" id="magender" value="female" class="form-control">Female
+                                <input type="radio" class="radio-inline" name="magenders" id="magenders" value="male" class="form-control">Male
+                                <input type="radio" class="radio-inline" name="magenders" id="magenders" value="female" class="form-control">Female
                             </div>
                             
                             <div class="form-group">
                                 <label for="password" class="text-info">Occupation:</label><br>
-                                <input type="radio" class="radio-inline" name="magender" id="magender" value="employee" class="form-control">Eployee
-                                <input type="radio" class="radio-inline" name="magender" id="magender" value="phashions" class="form-control" onclick="$('.dieases').show();">Phasiont
+                                <input type="radio" class="radio-inline" name="occupant" id="occupant" value="employee" class="form-control">Eployee
+                                <input type="radio" class="radio-inline" name="occupant" id="occupant" value="phashions" class="form-control" onclick="$('.dieases').show();">Phasiont
                             </div>
                             <div class="form-group dieases" style="display: none;">
-                                <label for="address" class="text-info">Diesease Type:</label><br>
-                                <input type="text" name="address" id="address" class="form-control">
+                                <label for="diesease_type" class="text-info">Diesease Type:</label><br>
+                                <input type="text" name="diesease_type" id="diesease_type" class="form-control">
                             </div>
                             <div class="form-group dieases" style="display: none;">
                                 <label for="medicine" class="text-info">Medicine Type:</label><br>
                                 <input type="text" name="medicine" id="medicine" class="form-control">
                             </div>
                             <div class="form-group dieases" style="display: none;">
-                                <select id="myoptions" class="form-control">
+                                <select id="myoptions" name="myoptions" class="form-control">
                                     <option value="">--how we should deliver your package--</option>
                                     <option value="post office">post office</option>
                                     <option value="dsv">dsv</option>
@@ -97,6 +97,7 @@
                                 <input type="button" id="regis" name="submit" class="btn btn-info btn-md" value="Save"/>
                                 <input type="reset" id="regis" name="submit" class="btn btn-info btn-md" value="Reset" onclick="$('#displayForm').hide();" />
                                 <input type="submit"name="submit" class="btn btn-info btn-md" value="Back"/>
+                                <input type="submit"name="submit" class="btn btn-info btn-md" value="Submit"/>
                             </div>
                             <div id="register-link" class="text-right">
                                 <a href="#" class="text-info">Register here</a>
@@ -115,9 +116,10 @@
 </body>
 
 <script type="text/javascript">
+    //each function used to loop through
     $(document).ready(function(){
       $("#regis").click(function(){
-
+     
         $(":text").each(function(){
            $("#displayForm").show();
            var prevEl = $(this).prev();//this guy gets the element before the element and the element we got here is <br>
