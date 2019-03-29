@@ -12,6 +12,7 @@
                 <div id="login-column" class="col-md-6">
                     <div id="login-box" class="col-md-12" style="height: auto;">
                         <form id="login-form" class="form" action="login_back.php" method="post" style="height: auto;">
+                            <input type="submit"name="submit" class="btn btn-info btn-md" value="Back" style="padding-top: 5%;" />
                             <h3 class="text-center text-info">Registration</h3>
                             <div class="form-group">
                                 <label for="first_name" class="text-info">First Name:</label><br>
@@ -69,12 +70,10 @@
                                 
                                 <input type="button" id="regis" name="submit" class="btn btn-info btn-md" value="Save"/>
                                 <input type="reset" id="regis" name="submit" class="btn btn-info btn-md" value="Reset" onclick="$('#displayForm').hide();" />
-                                <input type="submit"name="submit" class="btn btn-info btn-md" value="Back"/>
+                                
                                 <input type="submit"name="submit" class="btn btn-info btn-md" value="Submit"/>
                             </div>
-                            <div id="register-link" class="text-right">
-                                <a href="#" class="text-info">Register here</a>
-                            </div>
+                            
                         </form>
                     </div>
                 </div>

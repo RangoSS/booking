@@ -1,3 +1,11 @@
+<?php
+
+session_start();
+//here we start the session and check if the session is not emty
+$usernames= isset($_SESSION['usernames']) ? $_SESSION['usernames'] : "";
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -52,7 +60,7 @@
 							<span class="hidden-xs">Admin User</span> 
 						</a>
 						<ul class="dropdown-menu" id="shows">
-							<li><a href="#"><i class="fa fa-fw fa-user"></i> Edit Profile</a></li>
+							<li><a href="#"><i class="fa fa-fw fa-user"></i> Log in</a></li>
 							<li><a href="#"><i class="fa fa-fw fa-cog"></i> Change Password</a></li>
 							<li class="divider"></li>
 							<li><a href="#"><i class="fa fa-fw fa-power-off"></i> Logout</a></li>
@@ -65,7 +73,7 @@
 				<!--Begin::Nav-->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-left">
-						<li><a id="home" href="#">Home</a></li>
+						<li><a id="home" href="homes.php">Home</a></li>
 						<li><a id="about" href="#">About</a></li>
 						<li><a id="" href="#">Service</a></li>
 						<li><a id="" href="#">Contact</a></li>

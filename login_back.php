@@ -17,6 +17,7 @@ include "db_class.php"; //calling another class
                 var $occupant;
                  var $diesease_type;
                   var $medicine;
+                  var $passwords;//this one sets passwors
                  
     function __construct(){
           $this->first_name=$_POST['first_name'];
@@ -29,6 +30,7 @@ include "db_class.php"; //calling another class
                  $this->occupant=$_POST['occupant'];
                   $this->diesease_type=$_POST['diesease_type'];
                    $this->medicine=$_POST['medicine'];
+                   $this->passwords=$_POST['passwords'];
                    
 
 
@@ -51,7 +53,7 @@ include "db_class.php"; //calling another class
 
       $usernames=$_SESSION['usernames']=htmlspecialchars($_POST['usernames']); 
 
- 	$sqls="select user_name,occupation where user_name='$usernames' ";
+ 	$sqls="select user_name,occupation,passwords where user_name='$usernames' and passwords='$this->passwords'";
  	$logMeIn=$this->queryConn($sqls);
       
  	if($logMeIn && mysqli_num_rows($logMeIn) > 0){
