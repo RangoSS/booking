@@ -55,12 +55,13 @@ $usernames= isset($_SESSION['usernames']) ? $_SESSION['usernames'] : "";
 						</ul>
 					</li>
 					<li class="dropdown"> 
+						<!--my user login link-->
 						<a href="#" class="dropdown-toggle" data-toggle=".dropdown" onclick="$('#shows').toggle();" aria-expanded="true">
-							<img alt="" class="img-circle" src="https://static1.squarespace.com/static/55198f1ce4b00c2cab3e5e30/t/5526d500e4b009f3ec94b422/1428608282728/600x600%26text%3Dprofile+img.gif?format=300w" width="30"> 
-							<span class="hidden-xs">Admin User</span> 
+
+							<span class="hidden-xs">Log iN</span> 
 						</a>
 						<ul class="dropdown-menu" id="shows">
-							<li><a href="#"><i class="fa fa-fw fa-user"></i> Log in</a></li>
+							<li><a href="login.php"><i id="goToLogin" class="fa fa-fw fa-user"></i> Log in</a></li>
 							<li><a href="#"><i class="fa fa-fw fa-cog"></i> Change Password</a></li>
 							<li class="divider"></li>
 							<li><a href="#"><i class="fa fa-fw fa-power-off"></i> Logout</a></li>
