@@ -1,8 +1,5 @@
 <?php
 
-session_start();
-//here we start the session and check if the session is not emty
-$usernames= isset($_SESSION['usernames']) ? $_SESSION['usernames'] : "";
 
 include "db_class.php"; //calling another class
 
@@ -17,7 +14,8 @@ include "db_class.php"; //calling another class
                 var $occupant;
                  var $diesease_type;
                   var $medicine;
-                  var $passwords;//this one sets passwors
+                  var $serial_number="nothing";
+                 
                  
     function __construct(){
           $this->first_name=$_POST['first_name'];
@@ -30,7 +28,8 @@ include "db_class.php"; //calling another class
                  $this->occupant=$_POST['occupant'];
                   $this->diesease_type=$_POST['diesease_type'];
                    $this->medicine=$_POST['medicine'];
-                   $this->passwords=$_POST['passwords'];
+                   $this->serial_number=$_POST['serial_number'];
+                   
                    
 
 
@@ -41,35 +40,20 @@ include "db_class.php"; //calling another class
     	  $sql="insert into users(first_name,last_name,user_name,passwords,address,contact,gernder,occupation,disease_type,medicine_type)
  VALUES('$this->first_name','$this->surname','$this->username','$this->pwp','$this->address','$this->contact','$this->magenders','$this->occupant','$this->diesease_type','$this->medicine')";
 
-    	$register=$this->queryConn($sql);
-    	header("location:login.php");
-    	return $register;
+
+
+    	$insertedId=$this->queryConn($sql,true);//here we store that default variable as true
+echo "USREF".str_pad($insertedId, 8,"0",STR_PAD_LEFT);   //this adds 8 zeros berore the serial number 
+    header("location:login.php");
 
  }
 
- function loginUser(){
 
- 	session_start();
-
-      $usernames=$_SESSION['usernames']=htmlspecialchars($_POST['usernames']); 
-
- 	$sqls="select user_name,occupation,passwords where user_name='$usernames' and passwords='$this->passwords'";
- 	$logMeIn=$this->queryConn($sqls);
-      
- 	if($logMeIn && mysqli_num_rows($logMeIn) > 0){
- 	$row = mysqli_fetch_assoc($logMeIn);
-
- 	if($row['occupation'] == 'phashions') {
- 	header('location:booking.php');
- }
- }
- return $logMeIn;
-}
 
 
 
  }
   $log=new loginClass();
   $log->registerUser();
-  $log->loginUser();
+  
  

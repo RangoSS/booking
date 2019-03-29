@@ -18,12 +18,18 @@ class Connecting {
 	return $conn;
 
 }
-//so here i have to specify wich variable am calling
-public function queryConn($query){
+//so here i have to specify wich variable am calling 
+// so in this function we take default variable for returning serial number
+// false is equals to null
+public function queryConn($query,$returnId=false){
 
     $conn=$this->getConnection();
     $result=mysqli_query($conn,$query) or die(mysqli_error($conn));
-    return $result;
+
+    if($returnId)  // we only uses braces only when is more than on statement 
+    	return $conn->insert_id;          //this variable is found on login_back.php
+    else
+    return $result;    //return this only when it is false
 }
 }
 class getingData extends Connecting{
