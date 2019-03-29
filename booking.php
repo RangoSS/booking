@@ -1,6 +1,11 @@
 <?php
 
 include "heddss.php";
+
+session_start();
+//here we start the session and check if the session is not emty
+$usernames= isset($_SESSION['usernames']) ? $_SESSION['usernames'] : "";
+
 ?>
 
 <body>
