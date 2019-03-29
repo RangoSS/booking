@@ -57,15 +57,27 @@ $usernames= isset($_SESSION['usernames']) ? $_SESSION['usernames'] : "";
 					<li class="dropdown"> 
 						<!--my user login link-->
 						<a href="#" class="dropdown-toggle" data-toggle=".dropdown" onclick="$('#shows').toggle();" aria-expanded="true">
+                             <!--here check if session is not emty-->
+                          <?php if(isset($_SESSION['usernames']) && $_SESSION['usernames'] != "")
+                           { ?>
+                             <!--do this only if loged in-->
+                           	<i class='fas fa-user-tie' style='font-size:20px;margin-top: 10px;'> </i>      
+                            <li><a name="sissioning" href="logout.php"><b><u>Logout <?php echo  $usernames; ?></u></b></a></li>
 
-							<span class="hidden-xs">Log iN</span> 
+                            <!--else show this if not loged on-->
+
+                            <?php } else { ?>
+							<span class="hidden-xs">LOG IN</span> 
 						</a>
+
+
 						<ul class="dropdown-menu" id="shows">
 							<li><a href="login.php"><i id="goToLogin" class="fa fa-fw fa-user"></i> Log in</a></li>
 							<li><a href="#"><i class="fa fa-fw fa-cog"></i> Change Password</a></li>
 							<li class="divider"></li>
 							<li><a href="#"><i class="fa fa-fw fa-power-off"></i> Logout</a></li>
 						</ul>
+                        <?php } ?>
 					</li>
 				</ul>
 				<!--End::Header Right-->
