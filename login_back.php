@@ -1,4 +1,9 @@
 <?php
+
+session_start();
+//here we start the session and check if the session is not emty
+$usernames= isset($_SESSION['usernames']) ? $_SESSION['usernames'] : "";
+
 include "db_class.php"; //calling another class
 
  class loginClass extends Connecting{
@@ -40,7 +45,29 @@ include "db_class.php"; //calling another class
 
  }
 
+ function loginUser(){
+
+ 	session_start();
+
+      $usernames=$_SESSION['usernames']=htmlspecialchars($_POST['usernames']); 
+
+ 	$sqls="select user_name,occupation where user_name='$usernames' ";
+ 	$logMeIn=$this->queryConn($sqls);
+      
+ 	if($logMeIn && mysqli_num_rows($logMeIn) > 0){
+ 	$row = mysqli_fetch_assoc($logMeIn);
+
+ 	if($row['occupation'] == 'phashions') {
+ 	header('location:booking.php');
+ }
+ }
+ return $logMeIn;
+}
+
+
+
  }
   $log=new loginClass();
   $log->registerUser();
+  $log->loginUser();
  
