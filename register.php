@@ -14,6 +14,10 @@
                         <form id="login-form" class="form" action="login_back.php" method="post" style="height: auto;">
                             <input type="submit"name="submit" class="btn btn-info btn-md" value="Back" style="padding-top: 5%;" />
                             <h3 class="text-center text-info">Registration</h3>
+                            <!--serial number div-->
+                             <div class="form-group">
+                                <input type="hidden" name="serial_number" id="serial_number" class="form-control">
+                            </div>
                             <div class="form-group">
                                 <label for="first_name" class="text-info">First Name:</label><br>
                                 <input type="text" name="first_name" id="first_name" class="form-control">
@@ -106,3 +110,5 @@
         });
     
 </script>
+
+
