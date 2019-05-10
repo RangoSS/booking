@@ -14,18 +14,25 @@ include "bookingBack.php";
 <style type="text/css">
   .minimiseInput{width: 30%;}
   .timeBox{width: 10%;}
+
+  body {
+  background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
 </style>
 <br>
 <br>
 <body>
   <div style="height: 15%;background-color: silver;">
-    <p style="padding-left: 30%;"> time session is too hours,choose any <b>time between 08:30 and 04:30</b></p>
+    <h1 style="padding-left: 10%;padding-top: 2%;"> Booking Doctor is two hours,choose any <b>time between 08:30 and 04:30</b></h1>
 
   </div>
   <br>
   <!--here is my dropdown list-->
-  <input class="btn btn-default" type="button" name="btnSow" value=" Place Your Bookings" onclick="$('#myForm').show();$('#showMyBookings').hide();" style="margin-left: 30%;">
-  <input class="btn btn-default" type="submit" name="btnSow" value=" View  Bookings" onclick="$('#showMyBookings').show();$('#myForm').hide();">
+  <input class="btn btn-default" type="button" name="btnSow" value=" Place Your Bookings" onclick="$('#myForm').show();$('#showMyBookings').hide();$('#showIntro').hide();" style="margin-left: 30%;">
+  <input class="btn btn-default" type="submit" name="btnSow" value=" View  Bookings" onclick="$('#showMyBookings').show();$('#myForm').hide();$('#showIntro').hide();">
   <input class="btn btn-default" type="button" name="btnSow" value=" place your bookings" onclick="$('#showMyBookings').show();">
    <br>
   <!--it ends up here as well-->
@@ -125,6 +132,13 @@ include "bookingBack.php";
     </div>
   </div>
 </form>
+<!--end of form----->
+
+<div id="showIntro" style="border-style: solid;border-color:yellow;width: 73%;margin-left: 10%;">
+  <img src="medication/med5.jpg" alt="Trulli" width="550" height="333">
+  <img src="medication/v2.jpg" alt="Trulli" width="550" height="333">
+
+</div>
 <br>
 
 <div id="showMyBookings" style="display: none;">
@@ -179,7 +193,7 @@ include "bookingBack.php";
 
 <?php
 //now am placing here underneath
-/*
+
 if(isset($_POST['user_id'])){
   $user_id=$_POST['user_id'];
   $date_from=date('Y-m-d',strtotime($_POST['date_from']));
@@ -190,7 +204,11 @@ if(isset($_POST['user_id'])){
   $hospital=$_POST['hospital'];
   $surgery=$_POST['surgery'];
 }
-*/
+
 ?>
 
 </body>
+
+<?php
+include "footes.php";
+?>
